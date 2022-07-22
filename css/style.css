@@ -52,9 +52,8 @@ img {
 .section{
     padding-top: 94px;
     padding-bottom: 94px;
-
-    /* outline: 1px solid violet; */
 }
+
 .vissually-hidden{
     position: absolute;
     width: 1px;
@@ -113,6 +112,8 @@ img {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+
+    
 }
 
 .header-nav-list .header-nav-link:hover,
@@ -123,6 +124,8 @@ img {
 .address-link:focus,
 .address-link:hover {
     color: var(--accent-color);
+
+    transition: color 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-nav-link {
@@ -158,25 +161,19 @@ img {
     margin-right: 50px;
 }
 
-.header-contact-icon-mail {
+.header-contact-icon-mail,
+.header-contact-icon-tel{
     width: 16px;
     height: 12px;
     fill: currentColor;
     margin-right: 10px;
 
-    transition: fill;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-contact-icon-tel {
     width: 10px;
     height: 16px;
-    fill: currentColor;
-    margin-right: 10px;
-
-    transition: fill;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 .header-contact-icon-mail:hover,
 .header-contact-icon-tel:hover {
@@ -324,8 +321,9 @@ img {
 
 .work-item{
     display: block;
-    position: relative;
+    position: relative; 
 }
+
 .work-item:not(:last-child){
     margin-right: 30px;
 }
@@ -342,9 +340,7 @@ img {
 
     opacity: 0;
 
-     transition: opasity;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opasity 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .work-item:hover::before{
     opacity: 1;
@@ -439,6 +435,8 @@ img {
     padding: 12px;
 
     fill: var(--icons-color);
+
+    transition: fill 1250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 1250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
@@ -454,6 +452,43 @@ img {
 .footer-social-links .networks-link{
     fill: var(--header-color);
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* -------стиль логотипов компаний---------- */
+.clients-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clients-link:hover,
+.clients-link:focus,
+.clients-link:hover .clients-icon,
+.clients-link:focus .clients-icon {
+    border-color: var(--accent-color);
+    fill: var(--accent-color);
+}
+
+
+.clients-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    height: 92px;
+    border: 1px solid var(--icons-color);
+    border-radius: 4px;
+
+    transition: border-color 1250ms cubic-bezier(0.4, 0, 0.2, 1);
+    ;
+}
+
+.clients-icon {
+
+    width: 106px;
+    height: 60px;
+    fill: var(--icons-color);
+
+    transition: fill 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* -------стиль проэкты ---------*/
@@ -475,16 +510,12 @@ img {
 .project-card-img{
     position: relative;
     overflow: hidden;
-    transition: transform 1250ms cubic-bezier(0.4, 0, 0.2, 1)
-    /* width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto; */
-    
 }
+
 .project-card:hover .project-card-overlay{
-    transform: translateX(0);
+    transform: translateY(0);
 }
+
 .project-card-overlay{
     position: absolute;
     top: 0;
@@ -494,9 +525,10 @@ img {
     background-color: var(--accent-color);
     opacity: 0.9;
 
-    transform: translateX(-100%);
-    transition: trabsform 700ms ease;
+    transform: translateY(100%);
+    transition: transform 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .project-card-text{
     margin: 0;
     padding: 63px 24px;
@@ -511,6 +543,14 @@ img {
 
     margin-right: 30px;
     margin-bottom: 30px;
+
+    transition: box-shadow 1250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card.item:hover {
+    box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16),
+        0px 4px 4px 0px rgba(0, 0, 0, 0.06),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.12);
 }
 
 .project-card.item:nth-child(3n) {
@@ -546,46 +586,6 @@ img {
     line-height: 1.88;
     color: var(--second-text-color);
 }
-.project-card.item:hover{
-    box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16),
-                0px 4px 4px 0px rgba(0, 0, 0, 0.06),
-                0px 1px 1px 0px rgba(0, 0, 0, 0.12);
-}
-
-/* -------стиль логотипов компаний---------- */
-.clients-list {
-    display: flex;
-    justify-content: space-between;
-}
-
-.clients-link:hover,
-.clients-link:focus,
-.clients-link:hover .clients-icon,
-.clients-link:focus .clients-icon{
-    border-color: var(--accent-color);
-    fill: var(--accent-color);
-}
-
-
-.clients-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 170px;
-    height: 92px;
-    border: 1px solid var(--icons-color);
-    border-radius: 4px;
-}
-
-.clients-icon {
-
-    width: 106px;
-    height: 60px;
-    fill: var(--icons-color);
-}
-
-
-
 
 
 /* стиль футера */
@@ -642,11 +642,11 @@ img {
 .footer-social-links{
     display: flex;
 }
+
 .footer-social-links .networks-link:hover,
 .footer-social-links .networks-link:focus {
     fill: var(--header-color);
     color: rgba(255, 255, 255, 0.1);
     background-color: var(--accent-color);
-}{
-
 }
+
