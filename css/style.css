@@ -690,8 +690,8 @@ img {
 }
 .modal-close:hover,
 .modal-close:focus{
-    background-color: green;
-    fill: #FFFFFF;
+    background-color: var(--accent-color);
+    
 }
 .modal-img{
     width: 11px;
